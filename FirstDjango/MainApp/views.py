@@ -1,17 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
 user_info = {
-    "name":"Максим",
-    "surname":"Терентьев",
-    "phone":"+7(123)456-78-90",
-    "email":"somemail@somedomain.ru"
+    "name": "Максим",
+    "surname": "Терентьев",
+    "phone": "+7(123)456-78-90",
+    "email": "somemail@somedomain.ru"
 }
 
 # Create your views here.
-def home (request):
-    res = """
+def home(request):
+    res = f"""
     <h1>"Изучаем django"</h1>
-    <strong>Автор</strong>: <i>Терентьев М.В.</i>"""
+    <strong>Автор</strong>: <i>{user_info.get("surname")}</i>"""
     return HttpResponse(res)
 
 def about(request):
